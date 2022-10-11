@@ -1,7 +1,11 @@
 import React from 'react'
 import './login.css'
+import { useNavigate } from 'react-router-dom'
 
 export const LogIn = () => {
+
+    let navigate = useNavigate();
+
     return(
         <div className='main-container-login bg-image'>
            <div className='enter-user-container'> 
@@ -12,7 +16,7 @@ export const LogIn = () => {
                 <p className='label-login'>CONTRASEÑA</p>
                 <input type='password' placeholder='Ingrese contraseña'/>
            </div>
-           <button className='button-login'>INICIAR<br/>SESIÓN</button>
+           <button onClick={()=>navigate("/landing")} className='button-login'>INICIAR<br/>SESIÓN</button>
         </div>
     );
 }
