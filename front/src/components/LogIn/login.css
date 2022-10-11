@@ -1,0 +1,67 @@
+.bg-image{
+    background-image: url('../../assets/images/background-img-login.jpg');
+    background-size: 100vw;
+    background-position-y: 40%;
+    background-repeat: no-repeat;
+}
+
+.main-container-login{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.enter-user-container{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 25%;
+    height: 30%;
+   
+}
+
+input{
+    height: 28%;
+    width: 100%;
+    border-radius: 25px;
+    font-family: 'Inter';
+    font-weight: 400;
+    font-size: 28px;
+    padding-left: 4%;
+    color: black;
+}
+
+input::placeholder {
+    font-family: 'Inter';
+    font-style: italic;
+    font-weight: 400;
+    font-size: 20px;
+    color: black;
+    padding-left: 4%;
+}
+
+.label-login{
+    font-family: 'Inter';
+    font-weight: 800;
+    font-size: 40px;
+    color: #ffff;
+}
+
+.button-login{
+    height: 8%;
+    width: 12%;
+    border-radius: 25px;
+    background-color: #E0D14C;
+    font-family: 'Inter';
+    font-weight: 600;
+    font-size: 28px;
+    line-height: 105%;
+    color:#4B4A4A;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    border: 0;
+}
+
