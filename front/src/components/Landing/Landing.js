@@ -5,12 +5,14 @@ import operador from './../../assets/images/operador.jpg'
 import proveedor from './../../assets/images/proveedor.jpg'
 
 export const Landing = () => {
+
     let navigate = useNavigate();
+    
     return(
         <div className="main-container-landing">
             <h1 className='welcome-msg'>¡Bienvenido, Usuario!</h1>
             <div className='option-panel'> 
-                <div className='option'>
+                <div className='option' onClick={()=>navigate("/proveedores")}>
                     <img className='option-logo' src={proveedor} alt='proveedor-img'/>
                     <p className='option-text'>PROVEEDORES</p>
                 </div>

@@ -1,0 +1,124 @@
+.contenedor-principal-proveedores{
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+
+.menu-lateral{
+    display: flex;
+    height: 100%;
+    width: 20%;
+    background-color: #E0D14C;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+}
+
+.menu-lateral-titulo{
+    font-family: 'Inter';
+    font-weight: 800;
+    font-size: 32px;
+    margin-top:8%;
+    margin-bottom: 10%;
+    color: #4B4A4A;
+}
+
+.menu-lateral-boton{
+    width: 82%;
+    height: 8%;
+    border: 0;
+    border-bottom: 2px solid #4B4A4A ;
+    background-color: #E0D14C;
+    text-align: start;
+    padding-left: 10px;
+    font-family: 'Inter';
+    font-weight: 400;
+    font-size: 22px;
+    color: #4B4A4A;
+    
+}
+
+.seleccionado{
+    background-color: #4B4A4A ;
+    color: #ffff
+}
+
+.menu-lateral-boton:hover{
+    background-color: #4B4A4A ;
+    color: #ffff
+}
+.contenido-pantalla{
+    height: 100%;
+    width: 80%;
+    background-color: #EEEEEE;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.contenedor-scroll-tabla{
+    max-height: 85%;
+    overflow-y: scroll;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 6%;
+}
+.table{
+    width: 80%;
+    height: 90%;
+}
+
+thead{
+    position: sticky;
+    top:0;
+    background-color: #EEEEEE;
+}
+
+th{
+    font-family: 'Inter';
+    font-weight: 800;
+    font-size: 36px;
+    text-align: center;
+    border-bottom: 3px solid #4B4A4A;
+}
+
+tr{
+    font-family: 'Inter';
+    font-weight: 400;
+    font-size: 26px;
+    text-align: center;
+    vertical-align: middle;
+    border-bottom: 3px solid #4B4A4A;
+}
+
+.buscador-tabla{
+    width: 70%;
+    border-radius: 15px;
+    height: 55px;
+    border:0;
+    text-align: center;
+    padding: 0;
+    vertical-align: middle;
+
+}
+
+.columna-buscador{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    border:0;
+}
+
+
+.boton-ver-perfil{
+    background-color: #E0D14C;
+    border:0;
+    border-radius: 15px;
+    width: 50%;
+    height: 60%;
+    font-family: 'Inter';
+    font-size: 26px;
+    font-weight: 800;
+}

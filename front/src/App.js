@@ -9,6 +9,7 @@ import {
 
 import { LogIn } from './components/LogIn/LogIn';
 import { Landing } from './components/Landing/Landing';
+import { Proveedores } from './components/Proveedores/Proveedores';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Routes>
           <Route path="/" element={<LogIn/>} />
           <Route path="/landing" element={<Landing/>} />
+          <Route path="/proveedores" element={<Proveedores/>} />
         </Routes>
     </div>
     </BrowserRouter>
