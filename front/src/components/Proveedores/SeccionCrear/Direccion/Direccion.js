@@ -1,7 +1,8 @@
 import React from "react"
+import { UNSAFE_DataStaticRouterContext } from "react-router-dom"
 import './direccion.css'
 
-export const Direccion = ({data, posicion}) => {
+export const Direccion = ({data, modificarData, posicion}) => {
 
     const [datos, setDatos] = React.useState(
         {
@@ -18,6 +19,13 @@ export const Direccion = ({data, posicion}) => {
             ...datos,
             [event.target.name]: event.target.value,
         })
+
+        console.log(datos)
+        const aux = data.slice()
+        aux[posicion] = datos
+        
+        
+
     }
 
     return(

@@ -16,6 +16,7 @@ export const SeccionCrear = () => {
     
     const modificarDirecciones = (direc) => {
         setDirecciones(direc)
+        
     }
 
     const handleAddDireccion = () => {
@@ -35,7 +36,6 @@ export const SeccionCrear = () => {
         aux.pop()
         setDirecciones(aux);
     }
-
 
     return (
         <div className="container-seccion-crear">
@@ -76,7 +76,7 @@ export const SeccionCrear = () => {
             {
                 direcciones.map((elem, index)=>{
                     return(
-                        <Direccion key={index} posicion={index} data={modificarDirecciones}/>
+                        <Direccion key={index} posicion={index} data={direcciones} modificarData={modificarDirecciones}/>
                     )
                 })
             }
