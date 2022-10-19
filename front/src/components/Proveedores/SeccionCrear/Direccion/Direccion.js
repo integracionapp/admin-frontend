@@ -1,5 +1,4 @@
 import React from "react"
-import { UNSAFE_DataStaticRouterContext } from "react-router-dom"
 import './direccion.css'
 
 export const Direccion = ({data, modificarData, posicion}) => {

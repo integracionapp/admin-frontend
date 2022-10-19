@@ -1,5 +1,8 @@
 import './seccionbuscar.css'
 import React from 'react'
+import axios from 'axios'
+
+
 export const SeccionBuscar = () => {
 
     const [prov, setProv] = React.useState([

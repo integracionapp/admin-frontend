@@ -81,10 +81,15 @@ export const SeccionCrear = () => {
                 })
             }
             <div className="botones-crear">
-                <button className="boton-agregar-direccion" onClick={handleAddDireccion}>Agregar dirección</button>
-                {
-                    direcciones.length>1 && <button className="boton-agregar-direccion" onClick={handleDelDireccion}>Eliminar dirección</button>
-                }
+                <div className="botones-crear-col">
+                    <button className="boton-masmenos-direccion" onClick={handleAddDireccion}>+</button>
+                    {
+                        direcciones.length>1 && <button className="boton-masmenos-direccion" onClick={handleDelDireccion}>-</button>
+                    }
+                </div>
+                <div className="botones-crear-col">
+                    <button className="boton-masmenos-direccion" style={{width: '25%'}}>Crear</button>
+                </div>
                  
             </div>
            
