@@ -23,7 +23,7 @@ export const Direccion = ({data, modificarData, posicion}) => {
         console.log(datos)
         const aux = data.slice()
         aux[posicion] = datos
-        
+        modificarData(aux)
         
 
     }
@@ -36,29 +36,29 @@ export const Direccion = ({data, modificarData, posicion}) => {
                     <div className="columna-subseccion">
                         <div>
                             <label className="etiqueta-formulario">Calle</label>
-                            <input name="calle" type="text" className="input-formulario" placeholder="Calle" onChange={handleChange}/>
+                            <input value={datos.calle} name="calle" type="text" className="input-formulario" placeholder="Calle" onChange={handleChange}/>
                         </div>
                         
                         <div>
                             <label className="etiqueta-formulario">Código postal</label>
-                            <input name="codigo" type="text" className="input-formulario" placeholder="Código"onChange={handleChange}/>
+                            <input value={datos.codigo} name="codigo" type="text" className="input-formulario" placeholder="Código"onChange={handleChange}/>
                         </div>
 
                         <div>
                             <label className="etiqueta-formulario">Provincia</label>
-                            <input name="provincia" type="text" className="input-formulario" placeholder="Provincia" onChange={handleChange}/>
+                            <input value={datos.provincia} name="provincia" type="text" className="input-formulario" placeholder="Provincia" onChange={handleChange}/>
                         </div>
                     </div>
 
                     <div className="columna-subseccion">
                         <div>
                             <label className="etiqueta-formulario">Número</label>
-                            <input name="numero" type="text" className="input-formulario" placeholder="Número" onChange={handleChange}/>
+                            <input value={datos.numero} name="numero" type="text" className="input-formulario" placeholder="Número" onChange={handleChange}/>
                         </div>
 
                         <div>
                             <label className="etiqueta-formulario">Ciudad</label>
-                            <input name="ciudad" type="text" className="input-formulario" placeholder="Ciudad" onChange={handleChange} />
+                            <input value={datos.ciudad} name="ciudad" type="text" className="input-formulario" placeholder="Ciudad" onChange={handleChange} />
                         </div>
                     </div>
                 </div>
