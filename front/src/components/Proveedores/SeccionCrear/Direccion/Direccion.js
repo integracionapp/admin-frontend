@@ -23,8 +23,7 @@ export const Direccion = ({data, modificarData, posicion}) => {
         const aux = data.slice()
         aux[posicion] = datos
         modificarData(aux)
-        
-
+    
     }
 
     return(
