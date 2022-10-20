@@ -9,7 +9,8 @@ export const SeccionCrear = () => {
         telefono: '',
         email: '',
         cuit: '',
-        pagina: ''
+        pagina: '', 
+        direcciones: []
     })
     const [direcciones, setDirecciones] = React.useState([
         {
@@ -23,7 +24,6 @@ export const SeccionCrear = () => {
     
     const modificarDirecciones = (direc) => {
         setDirecciones(direc)
-        
     }
 
     const handleChange = (event) => {
@@ -31,6 +31,14 @@ export const SeccionCrear = () => {
             ...datos,
             [event.target.name]: event.target.value,
         })
+    }
+
+    const crear = () => {
+        setDatos({
+            ...datos,
+            direcciones: direcciones
+        })
+        console.log(datos)
     }
 
     const handleAddDireccion = () => {
@@ -57,30 +65,30 @@ export const SeccionCrear = () => {
             <p className="seccion-crear-titulo" style={{marginTop: '10px'}}>Datos Generales</p>
             
             <label className="etiqueta-formulario">Nombre</label>
-            <input value={datos.nombre} type="text" className="input-formulario" placeholder="Nombre" onChange={handleChange}/>
+            <input value={datos.nombre} name='nombre' type="text" className="input-formulario" placeholder="Nombre" onChange={(e) => handleChange(e)}/>
             
             <div className="subseccion-otros-datos">
                 <div className="columna-subseccion">
                     <div style={{width:'100%'}}>
                         <label className="etiqueta-formulario">Número de teléfono</label>
-                        <input value={datos.telefono} type="text" className="input-formulario" placeholder="Teléfono" onChange={handleChange}/>
+                        <input value={datos.telefono} name='telefono' type="text" className="input-formulario" placeholder="Teléfono" onChange={(e) => handleChange(e)}/>
                     </div>
                     
                     <div style={{width:'100%'}}>
                         <label className="etiqueta-formulario">E-mail</label>
-                        <input value={datos.email} type="text" className="input-formulario" placeholder="E-mail" onChange={handleChange}/>  
+                        <input value={datos.email} name='email' type="text" className="input-formulario" placeholder="E-mail" onChange={(e) => handleChange(e)}/>  
                     </div>
                    
                 </div>
                 <div className="columna-subseccion">
                     <div style={{width:'100%'}}>
                         <label className="etiqueta-formulario">Cuit</label>
-                        <input value={datos.cuit} type="text" className="input-formulario" placeholder="Cuit" onChange={handleChange}/>
+                        <input value={datos.cuit} name='cuit' type="text" className="input-formulario" placeholder="Cuit" onChange={(e) => handleChange(e)}/>
                     </div>
                     
                     <div style={{width:'100%'}}>
                         <label className="etiqueta-formulario">Página web</label>
-                        <input value={datos.pagina} type="text" className="input-formulario" placeholder="Web" onChange={handleChange}/>
+                        <input value={datos.pagina} name='pagina' type="text" className="input-formulario" placeholder="Web" onChange={(e) => handleChange(e)}/>
                     </div>
                 </div>
 
@@ -102,7 +110,7 @@ export const SeccionCrear = () => {
                     }
                 </div>
                 <div className="botones-crear-col">
-                    <button className="boton-masmenos-direccion" style={{width: '25%'}}>Crear</button>
+                    <button className="boton-masmenos-direccion" style={{width: '25%'}} onClick={()=>crear()}>Crear</button>
                 </div>
                  
             </div>
