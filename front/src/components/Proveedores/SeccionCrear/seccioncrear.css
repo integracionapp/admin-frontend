@@ -16,6 +16,7 @@
     font-family: 'Inter';
     font-weight: 800;
     font-size: 40px;
+    margin:0
 }
 
 .etiqueta-formulario{
@@ -27,8 +28,7 @@
 
 .input-formulario{
     width: 100%;
-    min-height: 50px;
-    max-height: 50px;
+    height: 45px;
     border-radius: 5px;
     border:0;
 }
@@ -82,7 +82,7 @@
     font-size: 24px;
     border:0;
     background-color: #4B4A4A;
-    width: 15%;
+    width: 20%;
     height: 100%;
     align-self: center;
     margin-top: 15px;
@@ -92,4 +92,39 @@
 .boton-masmenos-direccion:hover{
     color:#4B4A4A;
     background-color: #E0D14C;
+}
+
+
+.boton-direccion{
+    font-family: 'Inter';
+    color:#E0D14C;
+    font-weight: 800;
+    font-size: 24px;
+    border:0;
+    background-color: #4B4A4A;
+    width: 42%;
+    height: 100%;
+    align-self: center;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.edit{
+    color: #000;
+    background-color: #4285F4;
+}
+
+.edit:hover{
+    color: #fff;
+    background-color: #092c65;
+}
+
+.delete{
+    color: #fff;
+    background-color: #EA4433;
+}
+
+.delete:hover{
+    background-color: #fff;
+    color: #EA4433;
 }

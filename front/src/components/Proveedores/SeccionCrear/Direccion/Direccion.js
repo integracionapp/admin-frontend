@@ -31,7 +31,7 @@ export const Direccion = ({data, modificarData, posicion}) => {
 
     return(
         <div className="container-direccion">
-                <p className="seccion-crear-titulo">{`Direccion ${posicion+1}`}</p>
+                <p className="seccion-crear-titulo">{`Dirección ${posicion+1}`}</p>
 
                 <div className="datos-direccion">
                     <div className="columna-subseccion">

@@ -11,13 +11,20 @@ export const Proveedores = () => {
     const [buscar, setBuscar] = React.useState(true);
     const [crear, setCrear] = React.useState(false);
     const [opcion, setOpcion] = React.useState('buscar')
+    const [paramsBusqueda, setParamsBusqueda] = React.useState(null)
 
+    const realizarBusqueda = (data) => {
+        setParamsBusqueda(data)
+        setBuscar(false)
+        setCrear(false)
+        setOpcion('crear')
+    }
     const switchOpcion = (opcion) => {
         switch(opcion){
             case 'buscar':
-                return <SeccionBuscar/>
+                return <SeccionBuscar busqueda={realizarBusqueda} />
             case 'crear':
-                return <SeccionCrear/>
+                return <SeccionCrear data={paramsBusqueda}/>
         }
     }
     return(
@@ -30,6 +37,7 @@ export const Proveedores = () => {
                         setBuscar(true)
                         setCrear(false)
                         setOpcion('buscar')
+                        setParamsBusqueda(null)
                     }}
                 >
                     Buscar
@@ -40,6 +48,7 @@ export const Proveedores = () => {
                         setBuscar(false)
                         setCrear(true)
                         setOpcion('crear')
+                        setParamsBusqueda(null)
                     }}
                 >
                     Crear

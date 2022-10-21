@@ -1,8 +1,15 @@
 import React from "react"
 import './seccioncrear.css'
 import { Direccion } from './Direccion/Direccion';
+import { PopUp } from "../../PopUp/PopUp";
 
-export const SeccionCrear = () => {
+export const SeccionCrear = ({data}) => {
+    
+    const [showModal, setShowModal] = React.useState(false);
+    const [popUp, setpopUp] = React.useState({
+        mensaje: "",
+        titulo: ""
+    })
 
     const [datos, setDatos] = React.useState({
         nombre: '',
@@ -59,6 +66,18 @@ export const SeccionCrear = () => {
         setDirecciones(aux);
     }
 
+    const eliminar = () => {
+        //COLOCO FUNCIONALIDAD DEL ELIMINAR
+        setShowModal(true)
+        setpopUp({mensaje:'Se han eliminado los datos', titulo: "Eliminar"})
+    }
+
+    const modificar = () => {
+        //COLOCO FUNCIONALIDAD DEL MODIFICAR
+        setShowModal(true)
+        setpopUp({mensaje:'Se han modificado los datos', titulo: "Modificar"})
+    }
+
     return (
         <div className="container-seccion-crear">
 
@@ -102,19 +121,40 @@ export const SeccionCrear = () => {
                     )
                 })
             }
-            <div className="botones-crear">
-                <div className="botones-crear-col">
-                    <button className="boton-masmenos-direccion" onClick={handleAddDireccion}>+</button>
-                    {
-                        direcciones.length>1 && <button className="boton-masmenos-direccion" onClick={handleDelDireccion}>-</button>
-                    }
-                </div>
-                <div className="botones-crear-col">
-                    <button className="boton-masmenos-direccion" style={{width: '25%'}} onClick={()=>crear()}>Crear</button>
-                </div>
-                 
-            </div>
-           
+            {/*  */}
+
+            {
+                !data 
+                    ?
+                    <div className="botones-crear">
+                        <div className="botones-crear-col">
+                            <button className="boton-masmenos-direccion" onClick={handleAddDireccion}>+</button>
+                            {
+                                direcciones.length>1 && <button className="boton-masmenos-direccion" onClick={handleDelDireccion}>-</button>
+                            }
+                        </div>
+                        <div className="botones-crear-col">
+                            <button className="boton-masmenos-direccion" style={{width: '35%'}} onClick={()=>crear()}>Crear</button>
+                        </div>
+                    </div>
+                    :
+                    <div className="botones-crear">
+                        <div className="botones-crear-col">
+                            <button className="boton-masmenos-direccion" onClick={handleAddDireccion}>+</button>
+                            {
+                                direcciones.length>1 && <button className="boton-masmenos-direccion" onClick={handleDelDireccion}>-</button>
+                            }
+                        </div>
+                        <div className="botones-crear-col">
+                            <button className="boton-direccion edit" onClick={modificar}>Modificar</button>
+                            <button className="boton-direccion delete" onClick={eliminar}>Eliminar</button>
+                        </div>
+
+                    </div>
+            }
+            
+            <PopUp show={showModal} onHide={() => setShowModal(false)} text={popUp.mensaje} title={popUp.titulo}/>
+
         </div>
     )
 }

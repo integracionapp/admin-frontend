@@ -64,3 +64,8 @@ tr{
     font-size: 26px;
     font-weight: 800;
 }
+
+.boton-ver-perfil:hover{
+    background-color: #4B4A4A;
+    color: #E0D14C ;
+}

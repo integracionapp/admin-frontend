@@ -1,9 +1,8 @@
 import './seccionbuscar.css'
 import React from 'react'
-import axios from 'axios'
 
 
-export const SeccionBuscar = () => {
+export const SeccionBuscar = ({busqueda}) => {
 
     const [prov, setProv] = React.useState([
         {
@@ -73,7 +72,6 @@ export const SeccionBuscar = () => {
         setAuxBusqueda(prov.filter((elem) => {
             return elem.nombre.toLowerCase().includes(event.target.value.toLowerCase());
         }));
-        
     }
     return (
         <div className="contenedor-scroll-tabla">
@@ -102,7 +100,9 @@ export const SeccionBuscar = () => {
                                     <td>
                                         <button 
                                             className='boton-ver-perfil'
-                                            onClick={()=>console.log('Clickie en ' + elem.nombre)}
+                                            onClick={()=>busqueda({
+                                                itemName: elem.nombre
+                                            })}
                                         >
                                             Ver perfil
                                         </button>
