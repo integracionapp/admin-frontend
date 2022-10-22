@@ -16,13 +16,13 @@ export const Landing = () => {
                     <img className='option-logo' src={proveedor} alt='proveedor-img'/>
                     <p className='option-text'>PROVEEDORES</p>
                 </div>
-                <div className='option'>
+                <div className='option' onClick={()=>navigate("/franquicias")}>
                     <img className='option-logo' src={franquicia} alt='franquicia-img'/>
-                    <p className='option-text'>FRANQUICIA</p>
+                    <p className='option-text'>FRANQUICIAS</p>
                 </div>
-                <div className='option'>
+                <div className='option' onClick={()=>navigate("/operadores")}>
                     <img className='option-logo' src={operador} alt='operador-img'/>
-                    <p className='option-text'>OPERADORES</p>
+                    <p className='option-text' >OPERADORES</p>
                 </div>
             </div>
             <button onClick={()=>navigate("/")} className='button-logout'>CERRAR<br/>SESIÓN</button>
