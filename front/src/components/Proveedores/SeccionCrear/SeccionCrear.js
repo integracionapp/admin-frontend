@@ -63,8 +63,7 @@ export const SeccionCrear = ({busqueda}) => {
                             })
                         },
                         (error)=>{
-                            setShowModal(true)
-                            setpopUp({mensaje:'Consulta al desarrollador', titulo: "Error"})
+                            navigate('/login')
                         }   
                     )
                 }else{
@@ -74,33 +73,29 @@ export const SeccionCrear = ({busqueda}) => {
                 
             });
         }else{
-            if(!busqueda){
-                setDatos({
-                    businessName: '',
-                    phone: '',
-                    email: '',
-                    cuit: '',
-                    webPageUrl: '', 
-                    addresses: []
-                })
-                setDirecciones([
-                    {
-                        street:'',
-                        zipCode:'',
-                        province:'',
-                        number:'',
-                        city:'',
-                        type: 'Provider',
-                        latitude: '1',
-                        longitude: '1'
-                    }
-                ])
-            }
             
-
-            console.log("ESTOY CREANDO")
+            setDatos({
+                businessName: '',
+                phone: '',
+                email: '',
+                cuit: '',
+                webPageUrl: '', 
+                addresses: []
+            })
+            setDirecciones([
+                {
+                    street:'',
+                    zipCode:'',
+                    province:'',
+                    number:'',
+                    city:'',
+                    type: 'Provider',
+                    latitude: '1',
+                    longitude: '1'
+                }
+            ])
         }
-    },[])
+    },[busqueda])
     
     const modificarDirecciones = (direc) => {
         setDirecciones(direc)
@@ -167,7 +162,6 @@ export const SeccionCrear = ({busqueda}) => {
                             },
                             data : data
                         };
-                        console.log(config)
                         axios(config)
                         .then(()=>{
                             setpopUp({
@@ -273,8 +267,7 @@ export const SeccionCrear = ({busqueda}) => {
                             })
                         },
                         (error)=>{
-                            setShowModal(true)
-                            setpopUp({mensaje:'Consulta al desarrollador', titulo: "Error"})
+                            navigate('/login')
                         }
                     )
                 }
@@ -298,7 +291,7 @@ export const SeccionCrear = ({busqueda}) => {
             },
             data : data
         };
-        console.log(config)
+        
         axios(config)
         .then(function (response) {
             setpopUp({mensaje:'Se han modificado los datos', titulo: "Modificar"})
@@ -319,7 +312,7 @@ export const SeccionCrear = ({busqueda}) => {
                             },
                             data : data
                         };
-                        console.log(JSON.stringify(data))
+                        
 
                         axios(llamadoActualizar)
                         .then((response)=>{
@@ -327,15 +320,17 @@ export const SeccionCrear = ({busqueda}) => {
                             setShowModal(true)
                         })
                         .catch((error)=>{
-                            console.log(error)
+                            setShowModal(true)
+                            setpopUp({mensaje:'Consulta al desarrollador', titulo: "Error"})
                         })
                     },
                     (error)=>{
-                        console.log(error)
+                        navigate('/login')
                     }
                 )
             }else{
-                console.log(error)
+                setShowModal(true)
+                setpopUp({mensaje:'Consulta al desarrollador', titulo: "Error"})
             }
         });
         
