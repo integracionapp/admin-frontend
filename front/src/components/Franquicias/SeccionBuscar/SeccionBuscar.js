@@ -1,76 +1,80 @@
 import './seccionbuscar.css'
 import React from 'react'
-
+import axios from 'axios'
+import { Navigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 export const SeccionBuscar = ({busqueda}) => {
 
-    const [prov, setProv] = React.useState([
-        {
-            nombre: 'Guly S.A',
-            cuit: '3146633'
-        },
-        {
-            nombre: 'Speratonni',
-            cuit: '1141325'
-        },
-        {
-            nombre: 'Commins S.A',
-            cuit: '55661333'
-        },
-        {
-            nombre: 'Tretpacking',
-            cuit: '6131561'
-        },
-        {
-            nombre: 'Juniher',
-            cuit: '9823465'
-        },
-        {
-            nombre: 'Corvencin Limited',
-            cuit: '2789521'
-        },
-        {
-            nombre: 'Lopez y Asociados',
-            cuit: '6541367'
-        },
-        {
-            nombre: 'Corvencin Limited',
-            cuit: '2789521'
-        },
-        {
-            nombre: 'Lopez y Asociados',
-            cuit: '6541367'
-        },
-        {
-            nombre: 'Corvencin Limited',
-            cuit: '2789521'
-        },
-        {
-            nombre: 'Lopez y Asociados',
-            cuit: '6541367'
-        },
-        {
-            nombre: 'Corvencin Limited',
-            cuit: '2789521'
-        },
-        {
-            nombre: 'Lopez y Asociados',
-            cuit: '6541367'
-        },
-        {
-            nombre: 'Corvencin Limited',
-            cuit: '2789521'
-        },
-        {
-            nombre: 'Lopez y Asociados',
-            cuit: '6541367'
-        }
-    ])
+    let navigate = useNavigate();
 
+    const [prov, setProv] = React.useState([])
+
+    
+    React.useEffect(()=>{
+
+        const buscar = () => {
+            var config = {
+                method: 'get',
+                url: `http://${process.env.REACT_APP_API_URL}:8080/franchises/`,
+                headers: { 
+                  'Authorization': `Bearer ${sessionStorage.getItem('token')}` 
+                }
+              };
+              
+            axios(config)
+            .then(function (response) {
+                setAuxBusqueda(response.data)
+                setProv(response.data)
+            })
+            .catch(function (error) {
+                if(error.response.status === 403){
+                    var refresh = {
+                        method: 'get',
+                        url: `http://${process.env.REACT_APP_API_URL}:8080/token/refresh`,
+                        headers: { 
+                          'Authorization': `Bearer ${sessionStorage.getItem('refresh')}` 
+                        }
+                      };
+                      
+                      axios(refresh)
+                      .then(function (response) {
+                        
+                        sessionStorage.setItem('token', response.data.access_token)
+                        var llamadoNuevo = {
+                            method: 'get',
+                            url: `http://${process.env.REACT_APP_API_URL}:8080/franchises/`,
+                            headers: { 
+                              'Authorization': 'Bearer ' + response.data.access_token
+                            }
+                          };
+                          
+                        axios(llamadoNuevo)
+                        .then(function (response) {
+                            setProv(response.data)
+                            setAuxBusqueda(response.data)
+                        })
+                        .catch(function(error){
+                            console.log(error)
+                        })
+
+                      })
+                      .catch(function () {
+                        navigate('/login')
+                      });
+                      
+                }
+            });
+        }
+
+        buscar();
+    },[])
+    
+    
     const [auxBusqueda, setAuxBusqueda] = React.useState(prov)
     const handleChange = (event) => {
         setAuxBusqueda(prov.filter((elem) => {
-            return elem.nombre.toLowerCase().includes(event.target.value.toLowerCase());
+            return elem.businessName.toLowerCase().includes(event.target.value.toLowerCase());
         }));
     }
     return (
@@ -95,13 +99,13 @@ export const SeccionBuscar = ({busqueda}) => {
                         auxBusqueda.map((elem,index)=>{
                             return(
                                 <tr key={index}>
-                                    <td>{elem.nombre}</td>
+                                    <td>{elem.name}</td>
                                     <td>{elem.cuit}</td>
                                     <td>
                                         <button 
                                             className='boton-ver-perfil'
                                             onClick={()=>busqueda({
-                                                itemName: elem.nombre
+                                                itemName: elem.name
                                             })}
                                         >
                                             Ver perfil

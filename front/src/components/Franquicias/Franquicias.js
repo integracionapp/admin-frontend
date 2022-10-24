@@ -24,7 +24,7 @@ export const Franquicias = () => {
             case 'buscar':
                 return <SeccionBuscar busqueda={realizarBusqueda} />
             case 'crear':
-                return <SeccionCrear data={paramsBusqueda}/>
+                return <SeccionCrear busqueda={paramsBusqueda}/>
         }
     }
     return(
