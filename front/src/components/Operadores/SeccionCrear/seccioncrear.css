@@ -38,13 +38,13 @@
     padding-left: 0;
 }
 
-.subseccion-otros-datos{
+.subseccion-otros-datos-operador{
     display: flex;
     align-items: center;
     justify-content: space-between;
     width: 100%;
-    min-height: 22%;
-    margin-top: 3%;
+    min-height: 35%;
+    margin-top: 2%;
 }
 
 .columna-subseccion{

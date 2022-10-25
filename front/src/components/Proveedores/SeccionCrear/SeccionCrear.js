@@ -89,7 +89,6 @@ export const SeccionCrear = ({busqueda}) => {
                     province:'',
                     number:'',
                     city:'',
-                    type: 'Provider',
                     latitude: '1',
                     longitude: '1'
                 }
