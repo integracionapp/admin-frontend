@@ -1,0 +1,135 @@
+.container-seccion-crear{
+    height: 100%;
+    width: 70%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+    overflow-y: auto;
+}
+
+.container-seccion-crear::-webkit-scrollbar{
+    margin-left: 1px;
+}
+
+.seccion-crear-titulo{
+    font-family: 'Inter';
+    font-weight: 800;
+    font-size: 40px;
+    margin:0
+}
+
+.etiqueta-formulario{
+    font-family: 'Inter';
+    font-weight: 400;
+    font-size: 22px;
+}
+
+
+.input-formulario{
+    width: 100%;
+    height: 45px;
+    border-radius: 5px;
+    border:0;
+}
+
+.input-formulario::placeholder{
+    color: #6f6a6a67;
+    padding-left: 0;
+}
+
+.subseccion-otros-datos-franquicia{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    min-height: 18%;
+    margin-top: 1.5%;
+}
+
+.descripcion-franquicia{
+    min-height: 150px;
+    font-size: 24px;
+    padding: 10px;
+    font-family: 'Inter';
+}
+.columna-subseccion{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    min-height: 100%;
+    width: 42%;
+}
+
+.botones-crear{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    height: 6%;
+}
+
+.botones-crear-col{
+    display: flex;
+    width: 40%;
+    height: 100%;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.boton-masmenos-direccion{
+    font-family: 'Inter';
+    color:#E0D14C;
+    font-weight: 800;
+    font-size: 24px;
+    border:0;
+    background-color: #4B4A4A;
+    width: 20%;
+    height: 100%;
+    align-self: center;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.boton-masmenos-direccion:hover{
+    color:#4B4A4A;
+    background-color: #E0D14C;
+}
+
+
+.boton-direccion{
+    font-family: 'Inter';
+    color:#E0D14C;
+    font-weight: 800;
+    font-size: 24px;
+    border:0;
+    background-color: #4B4A4A;
+    width: 42%;
+    height: 100%;
+    align-self: center;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.edit{
+    color: #000;
+    background-color: #4285F4;
+}
+
+.edit:hover{
+    color: #fff;
+    background-color: #092c65;
+}
+
+.delete{
+    color: #fff;
+    background-color: #EA4433;
+}
+
+.delete:hover{
+    background-color: #fff;
+    color: #EA4433;
+}

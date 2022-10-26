@@ -1,0 +1,82 @@
+.main-container-landing{
+    background-color: #EEEEEE;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: column;
+}
+
+.welcome-msg{
+    display: flex;
+    font-family: 'Inter';
+    font-weight: 800;
+    color: #4B4A4A;
+    font-size: 60px;
+    line-height: 28px;
+    height: 10%;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    align-items: center;
+}
+
+.option-panel{
+    display: flex;
+    width: 85%;
+    height: 55%;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.option{
+    display: flex;
+    height: 85%;
+    width: 25%;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+    cursor:pointer;
+}
+
+.option:hover{
+    background-color: #685e5e81;
+    border-radius: 25px;
+    border-bottom: 5px solid #4B4A4B;
+}
+.option-logo{
+    height: 65%;
+    width: 75%;
+    border-radius: 25px;
+}
+
+.option-text{
+    font-family: 'Inter';
+    font-weight: 600;
+    font-size: 42px;
+    color: #4B4A4B;
+    margin: 0;
+}
+
+.button-logout{
+    height: 8%;
+    width: 12%;
+    border-radius: 25px;
+    background-color: #EA4433;
+    font-family: 'Inter';
+    font-weight: 600;
+    font-size: 28px;
+    line-height: 105%;
+    color:#FFFF;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    border: 0;
+}
+
+
+.button-logout:hover{
+    background-color: #ffff;
+    color:#EA4433;
+    border: 2px solid #EA4433;
+}
+
