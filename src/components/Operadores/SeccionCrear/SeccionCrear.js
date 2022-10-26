@@ -25,7 +25,7 @@ export const SeccionCrear = ({busqueda}) => {
             
             var config = {
                 method: 'get',
-                url: `http://${process.env.REACT_APP_API_URL}:8080/operators/find/${busqueda.itemName}`,
+                url: `http://${process.env.REACT_APP_API_URL}/operators/find/${busqueda.itemName}`,
                 headers: { 
                     'Authorization': `Bearer ${sessionStorage.getItem('token')}`
                 }
@@ -48,7 +48,7 @@ export const SeccionCrear = ({busqueda}) => {
                             sessionStorage.setItem('token', response.data.access_token)
                             var nuevoLlamado = {
                                 method: 'get',
-                                url: `http://${process.env.REACT_APP_API_URL}:8080/operators/find/${busqueda.itemName}`,
+                                url: `http://${process.env.REACT_APP_API_URL}/operators/find/${busqueda.itemName}`,
                                 headers: { 
                                     'Authorization': 'Bearer' + response.data.access_token
                                 }
@@ -126,7 +126,7 @@ export const SeccionCrear = ({busqueda}) => {
 
         var config = {
         method: 'post',
-        url: `http://${process.env.REACT_APP_API_URL}:8080/operators/`,
+        url: `http://${process.env.REACT_APP_API_URL}/operators/`,
         headers: { 
             'Authorization': `Bearer ${sessionStorage.getItem('token')}`, 
             'Content-Type': 'application/json'
@@ -160,7 +160,7 @@ export const SeccionCrear = ({busqueda}) => {
                         
                         var config = {
                             method: 'post',
-                            url: `http://${process.env.REACT_APP_API_URL}:8080/operators/`,
+                            url: `http://${process.env.REACT_APP_API_URL}/operators/`,
                             headers: { 
                                 'Authorization': 'Bearer ' + response.data.access_token, 
                                 'Content-Type': 'application/json'
@@ -230,7 +230,7 @@ export const SeccionCrear = ({busqueda}) => {
     const eliminar = () => {
         var config = {
             method: 'delete',
-            url: `http://${process.env.REACT_APP_API_URL}:8080/operators/${datos.id}`,
+            url: `http://${process.env.REACT_APP_API_URL}/operators/${datos.id}`,
             headers: { 
                 'Authorization': `Bearer ${sessionStorage.getItem('token')}`
             }
@@ -252,7 +252,7 @@ export const SeccionCrear = ({busqueda}) => {
                             sessionStorage.setItem('token', response.data.access_token)
                             var config = {
                                 method: 'delete',
-                                url: `http://${process.env.REACT_APP_API_URL}:8080/operators/${datos.id}`,
+                                url: `http://${process.env.REACT_APP_API_URL}/operators/${datos.id}`,
                                 headers: { 
                                     'Authorization': 'Bearer ' + response.data.access_token
                                 }
@@ -289,7 +289,7 @@ export const SeccionCrear = ({busqueda}) => {
             }
         var config = {
             method: 'put',
-            url: `http://${process.env.REACT_APP_API_URL}:8080/operators/`,
+            url: `http://${process.env.REACT_APP_API_URL}/operators/`,
             headers: { 
               'Authorization': `Bearer ${sessionStorage.getItem('token')}`, 
               'Content-Type': 'application/json'
@@ -310,7 +310,7 @@ export const SeccionCrear = ({busqueda}) => {
                         sessionStorage.setItem('token', response.data.access_token)
                         var llamadoActualizar = {
                             method: 'put',
-                            url: `http://${process.env.REACT_APP_API_URL}:8080/operators/`,
+                            url: `http://${process.env.REACT_APP_API_URL}/operators/`,
                             headers: { 
                               'Authorization': 'Bearer ' + response.data.access_token, 
                               'Content-Type': 'application/json'

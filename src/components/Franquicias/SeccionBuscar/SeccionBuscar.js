@@ -16,7 +16,7 @@ export const SeccionBuscar = ({busqueda}) => {
         const buscar = () => {
             var config = {
                 method: 'get',
-                url: `http://${process.env.REACT_APP_API_URL}:8080/providers/`,
+                url: `http://${process.env.REACT_APP_API_URL}/franchises/`,
                 headers: { 
                   'Authorization': `Bearer ${sessionStorage.getItem('token')}` 
                 }
@@ -31,7 +31,7 @@ export const SeccionBuscar = ({busqueda}) => {
                 if(error.response.status === 403){
                     var refresh = {
                         method: 'get',
-                        url: `http://${process.env.REACT_APP_API_URL}:8080/token/refresh`,
+                        url: `http://${process.env.REACT_APP_API_URL}/token/refresh`,
                         headers: { 
                           'Authorization': `Bearer ${sessionStorage.getItem('refresh')}` 
                         }
@@ -43,7 +43,7 @@ export const SeccionBuscar = ({busqueda}) => {
                         sessionStorage.setItem('token', response.data.access_token)
                         var llamadoNuevo = {
                             method: 'get',
-                            url: `http://${process.env.REACT_APP_API_URL}:8080/providers/`,
+                            url: `http://${process.env.REACT_APP_API_URL}/franchises/`,
                             headers: { 
                               'Authorization': 'Bearer ' + response.data.access_token
                             }
@@ -99,13 +99,13 @@ export const SeccionBuscar = ({busqueda}) => {
                         auxBusqueda.map((elem,index)=>{
                             return(
                                 <tr key={index}>
-                                    <td>{elem.businessName}</td>
+                                    <td>{elem.name}</td>
                                     <td>{elem.cuit}</td>
                                     <td>
                                         <button 
                                             className='boton-ver-perfil'
                                             onClick={()=>busqueda({
-                                                itemName: elem.businessName
+                                                itemName: elem.name
                                             })}
                                         >
                                             Ver perfil

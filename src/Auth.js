@@ -8,7 +8,7 @@ class Auth{
     refresh(thenCallback, catchCallback) {
         var refresh = {
             method: 'get',
-            url: `http://${process.env.REACT_APP_API_URL}:8080/token/refresh`,
+            url: `http://${process.env.REACT_APP_API_URL}/token/refresh`,
             headers: { 
               'Authorization': `Bearer ${sessionStorage.getItem('refresh')}` 
             }
