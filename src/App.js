@@ -12,6 +12,7 @@ import { Landing } from './components/Landing/Landing';
 import { Proveedores } from './components/Proveedores/Proveedores';
 import { Operadores } from './components/Operadores/Operadores';
 import { Franquicias } from './components/Franquicias/Franquicias'
+import { ProtectedRoute } from './ProtectedRoute';
 function App() {
   return (
     <BrowserRouter>
@@ -19,10 +20,28 @@ function App() {
         
           <Routes>
             <Route path="/" element={<LogIn/>} />
-            <Route path="/landing" element={<Landing/>} />
-            <Route path="/proveedores" element={<Proveedores/>} />
-            <Route path="/operadores" element={<Operadores/>} />
-            <Route path="/franquicias" element={<Franquicias/>} />
+            <Route path="/landing" element={
+              <ProtectedRoute>
+                <Landing/>
+              </ProtectedRoute>
+             }
+             />
+            <Route path="/proveedores" element={
+              <ProtectedRoute>
+                <Proveedores/>      
+              </ProtectedRoute>
+            } 
+            />
+            <Route path="/operadores" element={
+              <ProtectedRoute>
+                <Operadores/>
+              </ProtectedRoute>
+            } />
+            <Route path="/franquicias" element={
+              <ProtectedRoute>
+                <Franquicias/>
+              </ProtectedRoute>
+            } />
           </Routes>
       </div>
     </BrowserRouter>
