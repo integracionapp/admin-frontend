@@ -32,8 +32,16 @@ function App() {
               </ProtectedRoute>
             } 
             />
-            <Route path="/operadores" element={<Operadores/>} />
-            <Route path="/franquicias" element={<Franquicias/>} />
+            <Route path="/operadores" element={
+              <ProtectedRoute>
+                <Operadores/>
+              </ProtectedRoute>
+            } />
+            <Route path="/franquicias" element={
+              <ProtectedRoute>
+                <Franquicias/>
+              </ProtectedRoute>
+            } />
           </Routes>
       </div>
     </BrowserRouter>
