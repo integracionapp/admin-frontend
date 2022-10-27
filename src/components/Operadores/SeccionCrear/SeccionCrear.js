@@ -69,8 +69,12 @@ export const SeccionCrear = ({busqueda}) => {
                         }   
                     )
                 }else{
+                    setpopUp({
+                        titulo:'Error',
+                        mensaje: error.response.data.message
+                    })
+    
                     setShowModal(true)
-                    setpopUp({mensaje:'Consulta al desarrollador', titulo: "Error"})
                 }
                 
             });
@@ -121,8 +125,6 @@ export const SeccionCrear = ({busqueda}) => {
                 addresses: direcciones
             }
         
-        
-        console.log(data)
 
         var config = {
         method: 'post',
@@ -267,8 +269,12 @@ export const SeccionCrear = ({busqueda}) => {
                                 }, 2000);
                             })
                             .catch(()=>{
+                                setpopUp({
+                                    titulo:'Error',
+                                    mensaje: error.response.data.message
+                                })
+                
                                 setShowModal(true)
-                                setpopUp({mensaje:'Consulta al desarrollador', titulo: "Error"})
                             })
                         },
                         (error)=>{
@@ -283,10 +289,11 @@ export const SeccionCrear = ({busqueda}) => {
 
     const modificar = () => {
         var data = 
-            {
-                ...datos,
-                addresses: direcciones
-            }
+        {
+            ...datos,
+            birthDate: new Date(datos.birthDate),
+            addresses: direcciones
+        }
         var config = {
             method: 'put',
             url: `http://${process.env.REACT_APP_API_URL}/operators/`,
@@ -325,8 +332,12 @@ export const SeccionCrear = ({busqueda}) => {
                             setShowModal(true)
                         })
                         .catch((error)=>{
+                            setpopUp({
+                                titulo:'Error',
+                                mensaje: error.response.data.message
+                            })
+            
                             setShowModal(true)
-                            setpopUp({mensaje:'Consulta al desarrollador', titulo: "Error"})
                         })
                     },
                     (error)=>{
@@ -334,8 +345,12 @@ export const SeccionCrear = ({busqueda}) => {
                     }
                 )
             }else{
+                setpopUp({
+                    titulo:'Error',
+                    mensaje: error.response.data.message
+                })
+
                 setShowModal(true)
-                setpopUp({mensaje:'Consulta al desarrollador', titulo: "Error"})
             }
         });
         

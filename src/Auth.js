@@ -23,6 +23,21 @@ class Auth{
         })
     }
 
+    isLoged(){
+        const token = sessionStorage.getItem('token')
+
+        if(token){
+            return true
+        }else{
+            return false
+        }
+    }
+
+    logout(){
+        sessionStorage.removeItem('token')
+        sessionStorage.removeItem('refresh')
+    }
+
 }
 
 export default new Auth();

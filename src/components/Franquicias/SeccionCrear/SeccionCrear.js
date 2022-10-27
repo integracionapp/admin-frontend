@@ -132,8 +132,8 @@ export const SeccionCrear = ({busqueda}) => {
         .then(function (response) {
             console.log(JSON.stringify(response.data));
             setpopUp({
-                mensaje:'Se ha creado el proveedor',
-                titulo:'Creacion Proveedores'
+                mensaje:'Se ha creado la franquicia',
+                titulo:'Creacion Franquicia'
             })
 
             setShowModal(true)
@@ -261,8 +261,12 @@ export const SeccionCrear = ({busqueda}) => {
                                 }, 2000);
                             })
                             .catch(()=>{
+                                setpopUp({
+                                    titulo:'Error',
+                                    mensaje: error.response.data.message
+                                })
+                
                                 setShowModal(true)
-                                setpopUp({mensaje:'Consulta al desarrollador', titulo: "Error"})
                             })
                         },
                         (error)=>{
@@ -319,8 +323,12 @@ export const SeccionCrear = ({busqueda}) => {
                             setShowModal(true)
                         })
                         .catch((error)=>{
+                            setpopUp({
+                                titulo:'Error',
+                                mensaje: error.response.data.message
+                            })
+            
                             setShowModal(true)
-                            setpopUp({mensaje:'Consulta al desarrollador', titulo: "Error"})
                         })
                     },
                     (error)=>{
@@ -328,8 +336,12 @@ export const SeccionCrear = ({busqueda}) => {
                     }
                 )
             }else{
+                setpopUp({
+                    titulo:'Error',
+                    mensaje: error.response.data.message
+                })
+
                 setShowModal(true)
-                setpopUp({mensaje:'Consulta al desarrollador', titulo: "Error"})
             }
         });
         
