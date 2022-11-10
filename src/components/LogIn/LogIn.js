@@ -34,13 +34,13 @@ export const LogIn = () => {
         
         var config = {
         method: 'post',
-        url: `http://${process.env.REACT_APP_API_URL}/login`,
+        url: `http://${process.env.REACT_APP_API_URL}/token`,
         headers: {  
             'Content-Type': 'application/x-www-form-urlencoded'
         },
         data : data
         };
-        console.log(config)
+        
         axios(config)
         .then(function (response) {
             sessionStorage.setItem('token', response.data.access_token)
