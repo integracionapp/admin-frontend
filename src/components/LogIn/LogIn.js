@@ -52,7 +52,7 @@ export const LogIn = () => {
         });
           
     }
-    console.log()
+    
    
     return(
         <div className='main-container-login bg-image'>
