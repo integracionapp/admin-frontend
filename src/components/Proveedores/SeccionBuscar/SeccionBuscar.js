@@ -16,7 +16,7 @@ export const SeccionBuscar = ({busqueda}) => {
         const buscar = () => {
             var config = {
                 method: 'get',
-                url: `http://${process.env.REACT_APP_API_URL}/providers/`,
+                url: `https://${process.env.REACT_APP_API_URL}/providers/`,
                 headers: { 
                   'Authorization': `Bearer ${sessionStorage.getItem('token')}` 
                 }
@@ -31,7 +31,7 @@ export const SeccionBuscar = ({busqueda}) => {
                 if(error.response.status === 403){
                     var refresh = {
                         method: 'get',
-                        url: `http://${process.env.REACT_APP_API_URL}/token/refresh`,
+                        url: `https://${process.env.REACT_APP_API_URL}/token/refresh`,
                         headers: { 
                           'Authorization': `Bearer ${sessionStorage.getItem('refresh')}` 
                         }
@@ -43,7 +43,7 @@ export const SeccionBuscar = ({busqueda}) => {
                         sessionStorage.setItem('token', response.data.access_token)
                         var llamadoNuevo = {
                             method: 'get',
-                            url: `http://${process.env.REACT_APP_API_URL}/providers/`,
+                            url: `https://${process.env.REACT_APP_API_URL}/providers/`,
                             headers: { 
                               'Authorization': 'Bearer ' + response.data.access_token
                             }
