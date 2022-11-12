@@ -42,9 +42,24 @@ export const LogIn = () => {
         };
         axios(config)
         .then(function (response) {
-            sessionStorage.setItem('token', response.data.access_token)
-            sessionStorage.setItem('refresh', response.data.refresh_token)
-            navigate('/landing')
+
+            var config = {
+                method: 'get',
+                url: `https://${process.env.REACT_APP_API_URL}/users/admin/login`,
+                headers: {
+                    'Authorization': 'Bearer ' + response.data.access_token
+                }
+            };
+            axios(config)
+            .then(()=>{
+                sessionStorage.setItem('token', response.data.access_token)
+                sessionStorage.setItem('refresh', response.data.refresh_token)
+                navigate('/landing')
+            })
+            .catch(()=>{
+                setShowModal(true)
+            })
+            
         })
 
         .catch(function () {
