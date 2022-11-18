@@ -25,7 +25,7 @@ export const SeccionCrear = ({busqueda}) => {
             
             var config = {
                 method: 'get',
-                url: `https://${process.env.REACT_APP_API_URL}/operators/find/${busqueda.itemName}`,
+                url: `https://${process.env.REACT_APP_API_URL}/operators/name/${busqueda.itemName}`,
                 headers: { 
                     'Authorization': `Bearer ${sessionStorage.getItem('token')}`
                 }
@@ -48,7 +48,7 @@ export const SeccionCrear = ({busqueda}) => {
                             sessionStorage.setItem('token', response.data.access_token)
                             var nuevoLlamado = {
                                 method: 'get',
-                                url: `https://${process.env.REACT_APP_API_URL}/operators/find/${busqueda.itemName}`,
+                                url: `https://${process.env.REACT_APP_API_URL}/operators/name/${busqueda.itemName}`,
                                 headers: { 
                                     'Authorization': 'Bearer' + response.data.access_token
                                 }
