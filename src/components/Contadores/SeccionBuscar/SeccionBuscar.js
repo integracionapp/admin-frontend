@@ -31,8 +31,8 @@ export const SeccionBuscar = () => {
             axios(config)
             
             .then(function (response) {
-                //setAccount(response.data)
-                console.log(response.data)
+                setAccount(response.data)
+                
             })
             .catch(function (error) {
                 if(error.response.status === 403){
