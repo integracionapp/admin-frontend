@@ -1,0 +1,58 @@
+.contenedor-principal-proveedores{
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+
+.menu-lateral{
+    display: flex;
+    height: 100%;
+    width: 20%;
+    background-color: #E0D14C;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+}
+
+.menu-lateral-titulo{
+    font-family: 'Inter';
+    font-weight: 800;
+    font-size: 32px;
+    margin-top:8%;
+    margin-bottom: 10%;
+    color: #4B4A4A;
+}
+
+.menu-lateral-boton{
+    width: 82%;
+    height: 8%;
+    border: 0;
+    border-bottom: 2px solid #4B4A4A ;
+    background-color: #E0D14C;
+    text-align: start;
+    padding-left: 10px;
+    font-family: 'Inter';
+    font-weight: 400;
+    font-size: 22px;
+    color: #4B4A4A;
+    
+}
+
+.seleccionado{
+    background-color: #4B4A4A ;
+    color: #ffff
+}
+
+.menu-lateral-boton:hover{
+    background-color: #4B4A4A ;
+    color: #ffff
+}
+.contenido-pantalla{
+    height: 100%;
+    width: 80%;
+    background-color: #EEEEEE;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+}
+
