@@ -1,6 +1,5 @@
 import React from "react"
 import './seccioncrear.css'
-import { Direccion } from './Direccion/Direccion';
 import { PopUp } from "../../PopUp/PopUp";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
