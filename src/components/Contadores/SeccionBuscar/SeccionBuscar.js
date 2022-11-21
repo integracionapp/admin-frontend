@@ -12,27 +12,22 @@ export const SeccionBuscar = () => {
 
     
     React.useEffect(()=>{
-  
+        
         const buscar = () => {
            
-             
             let config = {
                 method: 'get',
-                url: `https://${process.env.REACT_APP_API_URL}/users/roles/`,
+                url: `http://${process.env.REACT_APP_API_URL}/users/roles/ROLE_ACCOUNTABLE`,
                 headers: {
                     'Authorization': `Bearer ${sessionStorage.getItem('token')}`,
-                    'Content-Type': 'application/json'
-                },
-                data : {
-                    name: 'ROLE_ACCOUNTABLE'
                 }
             };
             
             axios(config)
             
             .then(function (response) {
+                setAuxBusqueda(response.data)
                 setAccount(response.data)
-                
             })
             .catch(function (error) {
                 if(error.response.status === 403){
@@ -48,17 +43,15 @@ export const SeccionBuscar = () => {
                       .then(function (response) {
                         
                         sessionStorage.setItem('token', response.data.access_token)
-                        var llamadoNuevo = {
+                        let config = {
                             method: 'get',
-                            url: `https://${process.env.REACT_APP_API_URL}/users/roles/`,
-                            headers: { 
-                            'Authorization': `Bearer ${sessionStorage.getItem('token')}`,
-                            'Content-Type': 'application/json' 
-                            },
-                            data : {name: 'ROLE_ACCOUNTABLE'}
-                          };
-                          
-                        axios(llamadoNuevo)
+                            url: `http://${process.env.REACT_APP_API_URL}/users/roles/ROLE_ACCOUNTABLE`,
+                            headers: {
+                                'Authorization': `Bearer ${sessionStorage.getItem('token')}`,
+                            }
+                        };
+                        
+                        axios(config)
                         .then(function (response) {
                             setAccount(response.data)
                         })
@@ -110,8 +103,7 @@ export const SeccionBuscar = () => {
                             return(
                                 <tr key={index}>
                                     <td>{elem.name}</td>
-                                    <td>{elem.username}</td>
-                                    
+                                    <td>{elem.username}</td>    
                                 </tr>
                             );
                         })
