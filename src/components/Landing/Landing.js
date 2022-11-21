@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import franquicia from './../../assets/images/franquicia.jpg'
 import operador from './../../assets/images/operador.jpg'
 import proveedor from './../../assets/images/proveedor.jpg'
+import contabilidad from './../../assets/images/contabilidad.jpg'
 import Auth from './../../Auth'
 
 export const Landing = () => {
@@ -24,6 +25,10 @@ export const Landing = () => {
                 <div className='option' onClick={()=>navigate("/operadores")}>
                     <img className='option-logo' src={operador} alt='operador-img'/>
                     <p className='option-text' >OPERADORES</p>
+                </div>
+                <div className='option' onClick={()=>navigate("/contabilidad")}>
+                    <img className='option-logo' src={contabilidad} alt='operador-img'/>
+                    <p className='option-text' >CONTABILIDAD</p>
                 </div>
             </div>
             <button onClick={()=>{Auth.logout(); navigate("/");}} className='button-logout'>CERRAR<br/>SESIÓN</button>
