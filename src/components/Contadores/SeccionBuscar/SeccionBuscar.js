@@ -17,7 +17,7 @@ export const SeccionBuscar = () => {
            
             let config = {
                 method: 'get',
-                url: `http://${process.env.REACT_APP_API_URL}/users/roles/ROLE_ACCOUNTABLE`,
+                url: `https://${process.env.REACT_APP_API_URL}/users/roles/ROLE_ACCOUNTABLE`,
                 headers: {
                     'Authorization': `Bearer ${sessionStorage.getItem('token')}`,
                 }
